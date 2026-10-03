@@ -1,0 +1,5 @@
+Battery 100
+Battery 50
+Spring 0
+Battery 120
+Solar-battery 80

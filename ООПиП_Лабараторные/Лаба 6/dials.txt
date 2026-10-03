@@ -1,0 +1,5 @@
+Glass  Black 30
+Metal White 40
+Ceramic Blue 35
+Plastic Green 28
+Sapphire Black 42

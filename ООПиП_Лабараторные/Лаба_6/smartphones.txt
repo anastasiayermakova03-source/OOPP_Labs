@@ -1,0 +1,4 @@
+Smartphone Android_14 Pixel_8 48 12 6.2 50 Оптическая 8 2800
+Smartphone Android_13 Galaxy_S23 40 8 6.1 50 Электронная 8 3000
+Smartphone iOS_17 iPhone_15 30 6 6.7 48 Сенсорная 6 3200
+Gamephone 0 iOS_17 iPhone_15 30 6 6 0.7 48 Сенсорная 6 3200

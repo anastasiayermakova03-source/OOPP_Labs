@@ -1,0 +1,7 @@
+Hatha_Yoga 30 60
+Power_Pilates 25 55
+Stretching_Pro 23.5 45
+Meditation_Class 20 30
+Personal_Coach 75 60
+Aerostretching 30 50
+Sound_Healing 25 90

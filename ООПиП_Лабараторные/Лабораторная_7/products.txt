@@ -1,0 +1,7 @@
+Yoga_Mat_Pro 150
+Pilates_Ring 65
+Yoga_Block 21.5
+Bottle_500ml 18.7
+Fitness_Band 12.5
+Comfort_Towel 36.8
+Massage_Roller 49.9
