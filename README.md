@@ -16,3 +16,4 @@
 | 10 | Stream_InputOutput_Lab1 | Потоки ввода-вывода | [открыть](ООПиП/ООПиП_1) |
 | 11 | FileStream_Lab2 | Работа с файлами (тесты и наборы тестов) | [открыть](FileStream_Laba2) |
 | 12 | Sequences_Containers_Lab3 | Последовательные контейнеры STL (учет тестирования по программированию) | [открыть](Sequences) |
+| 13 | Associative_Containers_Laba4 | Ассоциативные контейнеры STL (учет тестирования по программированию) | [открыть](Associative_Containers_Laba4) |
