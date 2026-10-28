@@ -185,6 +185,37 @@ public:
 		}
 	}
 
+	void deleteTest() {
+		int numTest;
+		cout << " ------- ТЕСТЫ В СИСТЕМЕ ------- " << endl;
+		cout << string(45, '-') << endl;
+		for (int i = 0; i < tests.size(); ++i) {
+			cout << " [" << i + 1 << "]";
+			tests[i].printTest();
+			cout << endl;
+		}
+		cout << string(45, '-') << endl << " Выберите номер теста, который нужно удалить: ";
+		cin >> numTest;
+		if (numTest > tests.size() || numTest < 1) {
+			cout << "Некорректный ввод номера теста (1-" << tests.size() << ")" << endl;
+			return;
+		}
+
+		string delName = tests[numTest - 1].getNameTest();
+		string delId = tests[numTest - 1].getIdTest();
+		vector<Test>::iterator delT = tests.begin();
+		tests.erase(delT+numTest-1);
+
+		list<TestResult>::iterator r = results.begin();
+		for (r; r != results.end(); )
+			if (r->getTest() == delName)
+				r = results.erase(r);
+			else r++;
+
+		cout << "Тест [" << delName << "] успешно удален из системы" << endl;
+	}
+
+
 	void run() {
 		cout << "\n === Учет проведения тестирования по программированию среди студентов ===\n";
 		int choice;
@@ -235,7 +266,7 @@ public:
 				int res = insideMenu();
 				if (res == -1) break;
 				if (res == 1)  addTest();
-				// if (res == 2) deleteTest(); // удаление теста
+				if (res == 2) deleteTest(); // удаление теста
 				if (res == 3) {
 					cout << " ------- ТЕСТЫ В СИСТЕМЕ ------- " << endl;
 					cout << string(45, '-') << endl;
