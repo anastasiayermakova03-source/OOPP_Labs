@@ -49,6 +49,9 @@ public:
 	void addFullDoneTest(const set<string>& tests) {
 		doneTests = tests;
 	}
+	bool operator<(const Student& st) {
+		return this->getCountDoneTests() < st.getCountDoneTests();
+	}
 	void printStudent() const {
 		cout << " | " << setw(6) << id << " | " << setw(30) << name << " | " << setw(8) << group << " | ";
 	}

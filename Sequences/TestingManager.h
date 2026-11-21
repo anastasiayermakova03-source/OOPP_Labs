@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <list>
 #include <stdexcept>
 #include "TestResult.h"
@@ -12,11 +13,16 @@ using namespace std;
 class TestingManager
 {
 	vector<Student> students;
+
+	
+
+
 	vector<Test> tests;
 	list<TestResult> results;
 
 public:
 	TestingManager() {
+		students.push_back(Student("222", "Настя", 572306));
 		int loading = FileManager::loadData(students, tests, results);
 		if (loading == -1) {
 			cout << "Дальнейшая работа невозможна, устраните ошибки с файлами\n";
@@ -96,6 +102,19 @@ public:
 		for (r; r != results.end(); ++r)
 			if (nameSt == r->getStudent())
 				r = results.erase(r);
+	}
+
+	void sortStudent() {
+		vector<Student> sortedSt = students;
+		sort(sortedSt.begin(), sortedSt.end());
+		cout << string(56, '-') << endl;
+		cout << "№ | " << setw(6) << "Номер" << " | " << setw(30) << "ФИО" << " | " << setw(8) << "Группа" << " | " << endl;
+		for (int i = 0; i < sortedSt.size(); ++i) {
+			cout << i + 1;
+			sortedSt[i].printStudent();
+			cout << endl;
+		}
+		cout << string(56, '-') << endl;
 	}
 
 	void addTest() {
@@ -226,7 +245,8 @@ public:
 				"2) управление тестами (добавление, удаление, просмотр);\n" <<
 				"3) пройти тестирование (выбрать студента -> выбрать тест -> пройти);\n" <<
 				"4) результаты тестирований ;\n" <<
-				"5) выход;\n" <<
+				"5) сортировка студентов;\n" <<
+				"6) выход;\n" <<
 				" Выбор: ";
 			cin >> choice;
 			if (!cin.good()) {
@@ -236,7 +256,7 @@ public:
 				cout << "Можете продолжать работу\n";
 				continue;
 			}
-			if (choice > 5 || choice < 1) {
+			if (choice > 6 || choice < 1) {
 				cout << "Некорректный ввод числового значения (1-5)" << endl;
 				continue;
 			}
@@ -337,7 +357,12 @@ public:
 				cout << string(50, '-') << endl;
 				break;
 			}
-			case 5:
+			case 5: {
+				cout << "\n == СОРТИРОВКА СТУДЕНТОВ ==\n";
+				sortStudent();
+				break;
+			}
+			case 6:
 				cout << "\n ВЫХОД ИЗ ПРОГРАММЫ...\n";
 				flag = 0;
 				break;

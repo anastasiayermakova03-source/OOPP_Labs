@@ -409,10 +409,7 @@ public:
 				cout << string(50, '-') << endl;
 				
 				vector<pair<string,Student>> sortedSt(students.begin(),students.end()); //создаем вектор из пар
-				sort(sortedSt.begin(), sortedSt.end(), [](const pair<string, Student>& a, const pair<string, Student>& b) {
-					return a.second.getDoneTests().size() > b.second.getDoneTests().size();
-					});
-
+				sort(sortedSt.begin(), sortedSt.end());
 				for (int i = 0; i < sortedSt.size(); ++i) {
 					cout << "'" << sortedSt[i].second.getName() << "' - " << sortedSt[i].second.getCountDoneTests() << " тест(-ов)" << endl;
 				}

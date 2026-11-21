@@ -35,6 +35,9 @@ public:
 	void setGroup(int g) {
 		group = g;
 	}
+	bool operator<(const Student& other) const {
+		return this->name < other.name; 
+	}
 	void printStudent() const {
 		cout << " | " << setw(6) << id << " | " << setw(30) << name << " | " << setw(8) << group << " | ";
 	}
