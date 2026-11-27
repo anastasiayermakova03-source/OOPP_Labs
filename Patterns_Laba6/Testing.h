@@ -23,6 +23,7 @@ public:
 
 	const unordered_map<string, Student>& getStudents() const { return students; }
 	const map<string, Test>& getTests() const { return tests; }
+	int getCountTests() const { return tests.size(); }
 
 	bool addStudent(const Student& st) {
 		return students.emplace(st.getId(), st).second;
@@ -79,13 +80,17 @@ public:
 
 	void printStudents() const {
 		for (unordered_map<string, Student>::const_iterator it = students.begin(); it != students.end(); ++it) {
-			cout << "[" << it->second.getId() << "] " << it->second.getName() << endl;
+			cout << "[" << it->second.getId() << "] " << it->second.getName() << "  гр." << it->second.getGroup() << endl;
 		}
 	}
 
 	void printTests() const {
-		for (map<string, Test>::const_iterator it = tests.begin(); it != tests.end(); ++it)
+		int ind = 1;
+		for (map<string, Test>::const_iterator it = tests.begin(); it != tests.end(); ++it) {
+			cout << " [" << ind++ << "] ";
 			it->second.printTest();
+			cout << endl;
+		}
 	}
 
 	void printResults() const {

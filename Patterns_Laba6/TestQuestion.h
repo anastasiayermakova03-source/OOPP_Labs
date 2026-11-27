@@ -29,10 +29,10 @@ public:
 	};
 	virtual void saveToFile(ostream& file)  {}
 
-	virtual TestQuestion* clone() const { // фабричное копирование
-		return new TestQuestion(*this);
+	virtual unique_ptr<TestQuestion> clone() const { // фабричное копирование
+		return make_unique<TestQuestion>(*this);
 	}
-
+	
 	virtual ~TestQuestion() {};
 };
 
@@ -75,8 +75,8 @@ public:
 		}
 		file << "\n";
 	}
-	ChoiceQuestion* clone() const override {
-		return new ChoiceQuestion(*this);
+	unique_ptr<TestQuestion> clone() const override {
+		return make_unique<ChoiceQuestion>(*this);
 	}
 };
 
@@ -102,8 +102,8 @@ public:
 	void saveToFile(ostream& file) override {
 		file << "DEF;" << getText() << ";" << corAnswer << "\n";
 	}
-	DefQuestion* clone() const override {
-		return new DefQuestion(*this);
+	unique_ptr<TestQuestion> clone() const override {
+		return make_unique<DefQuestion>(*this);
 	}
 };
 

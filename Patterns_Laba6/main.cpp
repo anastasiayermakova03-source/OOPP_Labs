@@ -129,22 +129,34 @@ int main() {
 				cout << "Студент с таким ID не найден.\n";
 			}
 
-			string testId;
 			const Test* selectedTest = nullptr;
 			while (true) {
 				cout << "\n=== ВЫБОР ТЕСТА ===\n";
 				app.printTests();
-				cout << "Введите ID теста: ";
-				getline(cin, testId);
-				if (testId.find_first_not_of(" \t\r\n") == string::npos) {
-					cout << "ID не может быть пустым.\n";
-					continue;
+
+				int num = 0;
+				while (true) {
+					cout << "Введите номер теста: ";
+					if (!(cin >> num)) {
+						cin.clear();
+						cin.ignore(numeric_limits<streamsize>::max(), '\n');
+						cout << "Ошибка ввода.\n";
+						continue;
+					}
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+					if (num > 0 && num <= app.getCountTests()) {
+						break;
+					}
+					cout << "Номер некорректный\n";
 				}
-				selectedTest = app.findTest(testId);
-				if (selectedTest != nullptr) {
-					break;
+
+				auto t = app.getTests().begin();
+				for (int i = 1; i < num; ++i) {
+					++t;
 				}
-				cout << "Тест с таким ID не найден.\n";
+				selectedTest = &t->second;
+				break;
 			}
 
 			unique_ptr<QuestionHint> hint = modeFactory->createHint();
@@ -155,7 +167,7 @@ int main() {
 
 			cout << "\n--- Начало теста \"" << selectedTest->getTitle() << "\" (" << modeFactory->getModeName() << ") ---\n";
 			for (size_t i = 0; i < questions.size(); ++i) {
-				const TestQuestion* q = questions[i];
+				const TestQuestion* q = questions[i].get();
 				if (!q) {
 					continue;
 				}
@@ -210,15 +222,16 @@ int main() {
 					break;
 				}
 				if (tChoice == 1) {
-					string id;
+					int num;
 					while (true) {
-						cout << "Введите ID теста: ";
-						getline(cin, id);
-						if (id.find_first_not_of(" \t\r\n") != string::npos) {
+						cout << "Введите номер теста: ";
+						cin >> num;
+						if (num > 0 && num < app.getTests().size()) {
 							break;
 						}
-						cout << "ID не может быть пустым.\n";
+						cout << "Номер некорректный\n";
 					}
+					string id = "T" + to_string(num);
 
 					string title;
 					while (true) {

@@ -141,12 +141,8 @@ public:
 			getline(ss, numQ, ';');
 
 			int count = 0;
-			try { count = stoi(numQ); }
-			catch (const exception&) {
-				cout << "Предупреждение: пропущен некорректный заголовок теста -> " << line << endl;
-				continue;
-			}
-
+			count = stoi(numQ);
+			
 			Test test(id, title);
 			for (int i = 0; i < count; ++i) {
 				string question;
