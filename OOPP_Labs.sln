@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Associative_Containers_Laba
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Adapters_Laba5", "Adapters_Lab5\Adapters_Lab5.vcxproj", "{2BF5CC56-6CCA-41FF-9B5C-510474BE1963}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Patterns_Laba6", "Patterns_Laba6\Patterns_Laba6.vcxproj", "{758BE166-F886-41D3-9754-ABFAFFAA6BEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{2BF5CC56-6CCA-41FF-9B5C-510474BE1963}.Release|x64.Build.0 = Release|x64
 		{2BF5CC56-6CCA-41FF-9B5C-510474BE1963}.Release|x86.ActiveCfg = Release|Win32
 		{2BF5CC56-6CCA-41FF-9B5C-510474BE1963}.Release|x86.Build.0 = Release|Win32
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Debug|x64.ActiveCfg = Debug|x64
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Debug|x64.Build.0 = Debug|x64
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Debug|x86.ActiveCfg = Debug|Win32
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Debug|x86.Build.0 = Debug|Win32
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Release|x64.ActiveCfg = Release|x64
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Release|x64.Build.0 = Release|x64
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Release|x86.ActiveCfg = Release|Win32
+		{758BE166-F886-41D3-9754-ABFAFFAA6BEB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
